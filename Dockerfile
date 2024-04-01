@@ -53,7 +53,7 @@ RUN bash -x /src/build.sh \
       --enable-filter=anull,aformat,aresample,null,format \
       --enable-decoder=hevc,aac \
       --enable-encoder=libx264,aac \
-      --enable-demuxer=aac,hevc,mpegts \
+      --enable-demuxer=webm,matroska,aac,hevc,mpegts \
       --enable-muxer=mp4 \
       --enable-parser=aac,hevc \
       --enable-protocol=file

@@ -54,7 +54,7 @@ RUN bash -x /src/build.sh \
       --enable-decoder=hevc,aac \
       --enable-encoder=libx264,aac \
       --enable-demuxer=webm,matroska,aac,hevc,mpegts \
-      --enable-muxer=mp4 \
+      --enable-muxer=webm,mp4 \
       --enable-parser=aac,hevc \
       --enable-protocol=file
 

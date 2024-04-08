@@ -1,6 +1,6 @@
 {
   "name": "@imput/ffwasm524-core-mt",
-  "version": "0.12.6-5",
+  "version": "0.12.6-6",
   "description": "FFmpeg WebAssembly version (multi thread) built specifically for converting H.265 (HEVC) video to H.264 (AVC)",
   "main": "./dist/umd/ffmpeg-core.js",
   "exports": {

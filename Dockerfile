@@ -18,7 +18,7 @@ ENV PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$EM_PKG_CONFIG_PATH
 ENV FFMPEG_ST=$FFMPEG_ST
 ENV FFMPEG_MT=$FFMPEG_MT
 RUN apt-get update && \
-      apt-get install -y pkg-config autoconf automake libtool ragel
+      apt-get install -y pkg-config autoconf automake libtool ragel openssl libssl-dev
 
 # Build x264
 FROM emsdk-base AS x264-builder
@@ -56,7 +56,9 @@ RUN bash -x /src/build.sh \
       --enable-demuxer=webm,matroska,aac,hevc,mpegts \
       --enable-muxer=webm,mp4 \
       --enable-parser=aac,hevc \
-      --enable-protocol=file
+      --enable-protocol=file \
+      --enable-openssl \
+      --enable-protocols 
 
 # Build ffmpeg.wasm
 FROM ffmpeg-builder AS ffmpeg-wasm-builder

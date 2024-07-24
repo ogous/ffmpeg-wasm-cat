@@ -18,7 +18,7 @@ ENV PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$EM_PKG_CONFIG_PATH
 ENV FFMPEG_ST=$FFMPEG_ST
 ENV FFMPEG_MT=$FFMPEG_MT
 RUN apt-get update && \
-      apt-get install -y pkg-config autoconf automake libtool ragel
+      apt-get install -y pkg-config autoconf automake libtool ragel openssl libssl-dev
 
 # Build x264
 FROM emsdk-base AS x264-builder
@@ -40,6 +40,8 @@ RUN embuilder build sdl2 sdl2-mt
 ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=x265-builder $INSTALL_DIR $INSTALL_DIR
+RUN apt-get update && \
+      apt-get install -y openssl libssl-dev
 
 # Build ffmpeg
 FROM ffmpeg-base AS ffmpeg-builder

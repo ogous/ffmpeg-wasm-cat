@@ -57,7 +57,8 @@ RUN bash -x /src/build.sh \
       --enable-muxer=webm,mp4 \
       --enable-parser=aac,hevc \
       # --enable-protocol=file \
-      --enable-openssl 
+      --enable-openssl \
+      --enable-nonfree
 
 # Build ffmpeg.wasm
 FROM ffmpeg-builder AS ffmpeg-wasm-builder

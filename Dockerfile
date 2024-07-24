@@ -45,7 +45,7 @@ COPY --from=x265-builder $INSTALL_DIR $INSTALL_DIR
 FROM ffmpeg-base AS ffmpeg-builder
 COPY build/ffmpeg.sh /src/build.sh
 RUN apt-get update && \
-      apt-get openssl libssl-dev
+      apt-get install -y openssl libssl-dev
 RUN bash -x /src/build.sh \
       --disable-everything \
       --enable-gpl \

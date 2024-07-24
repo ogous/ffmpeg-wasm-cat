@@ -49,7 +49,7 @@ COPY build/ffmpeg.sh /src/build.sh
 RUN apt-get update && \
      sudo apt-get install -y pkg-config autoconf automake libtool ragel openssl libssl-dev
 RUN bash -x /src/build.sh \
-      --disable-everything \
+      # --disable-everything \
       --enable-gpl \
       --enable-libx264 \
       --enable-libx265 \
